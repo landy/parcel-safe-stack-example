@@ -1,5 +1,6 @@
 module Index
 
+open Client
 open Elmish
 open Fable.Remoting.Client
 open Shared
@@ -45,13 +46,14 @@ open Feliz
 open Feliz.Bulma
 
 let navBrand =
+    let brandImage = HtmlHelpers.importImage "./public/favicon.png"
     Bulma.navbarBrand.div [
         Bulma.navbarItem.a [
             prop.href "https://safe-stack.github.io/"
             navbarItem.isActive
             prop.children [
                 Html.img [
-                    prop.src "/favicon.png"
+                    prop.src brandImage
                     prop.alt "Logo"
                 ]
             ]
@@ -114,7 +116,7 @@ let view (model: Model) (dispatch: Msg -> unit) =
                         prop.children [
                             Bulma.title [
                                 text.hasTextCentered
-                                prop.text "parceltest"
+                                prop.text "parceltests"
                             ]
                             containerBox model dispatch
                         ]
